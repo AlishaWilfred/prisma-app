@@ -16,7 +16,7 @@ model Users{
   email       String   @unique
   profileImage String?
   group       UserGroup[]
-  expenses    Expense[]
+  expenses    Expense[] 
 }
 
 model UserGroup{
@@ -25,15 +25,13 @@ model UserGroup{
   groupId     Int
   user        Users    @relation(fields:[userId],references:[id])
   group       Groups    @relation(fields:[groupId],references:[id])
-
-
 }
 
 model Groups{
   id          Int      @id @default(autoincrement())
   name        String
   user        UserGroup[]
-  expenses     Expense[]
+  expenses     Expense[] 
 }
 
 model Expense{
@@ -47,6 +45,5 @@ model Expense{
   groupId      Int?
   user        Users?    @relation(fields:[userId],references:[id])
   group        Groups?    @relation(fields:[groupId],references:[id])
-
 
 }

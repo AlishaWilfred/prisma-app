@@ -17,7 +17,6 @@ export default async function handler(req:NextApiRequest,res:NextApiResponse) {
                 name:req.body.name,
             }
             })
-            if(addGroup.name) return res.status(400).json({error:"group already exists"})
             return res.status(200).json(addGroup)
 
         case "PATCH":

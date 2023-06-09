@@ -12,6 +12,7 @@ export default function index() {
         }
         fn()
     },[])
+    console.log(users)
   return (
     <div>index
         {users.map((user)=>(
@@ -19,9 +20,6 @@ export default function index() {
             <div >
                 <h1>{user.name}</h1>
                 <p>{user.email}</p>
-            </div>
-            <div>
-                {user?.group.map((gr:any)=> gr.group)}
             </div>
             </div>
         ))}
