@@ -7,7 +7,12 @@ export default async function handler(req:NextApiRequest,res:NextApiResponse){
             try{
                 const user=await prisma.users.findMany({
                     include:{
-                        group:true
+                        group:{
+                            include:{
+                                group:true,
+                            }
+                        },
+                        expenses:true
                     }
                 })
                 return res.status(200).json(user)
